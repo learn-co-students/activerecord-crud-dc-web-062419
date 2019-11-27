@@ -8,6 +8,8 @@ if ActiveRecord::Base.connection.migration_context.needs_migration?
   raise 'Migrations are pending. Run `rake db:migrate SINATRA_ENV=test` to resolve the issue.'
 end
 
+ActiveRecord::Base.logger = nil
+
 RSpec.configure do |config|
 
   config.include Rack::Test::Methods
